@@ -1,4 +1,6 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import redirect, render,HttpResponse,HttpResponseRedirect
+
+from helloapp.utils import send_mail_to_user
 
 # Create your views here.
 def hello_response(request):
@@ -24,3 +26,13 @@ def multiply(request):
 
       # print(request.GET)
     # print(request.GET.get('num1'))
+def test(request):
+
+
+    return redirect('helloapp:hello_response')
+
+def send_mail(request):
+    message = request.GET.get('message')
+
+    send_mail_to_user(['test@gmail.com'],'Mail from Django',"THis is mail from django app and message is {}".format(message))
+    return HttpResponse("Mail sent to test@gmail.com ")

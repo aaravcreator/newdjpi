@@ -23,5 +23,7 @@ urlpatterns = [
    path("",views.hello_response,name='hello_response'),
    path('greet/<str:name>',views.greetme,name='greetme'),
    path('square/<int:number>',views.square,name='square'),
-   path('multiply/',views.multiply,name='multiply')
+   path('multiply/',views.multiply,name='multiply'),
+   path('test/',views.test,name='test'),
+   path('send_mail/',views.send_mail,name='send_mail'),
 ]
