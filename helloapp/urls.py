@@ -20,10 +20,12 @@ from helloapp import views
 app_name = "helloapp"
 
 urlpatterns = [
-   path("",views.hello_response,name='hello_response'),
-   path('greet/<str:name>',views.greetme,name='greetme'),
-   path('square/<int:number>',views.square,name='square'),
-   path('multiply/',views.multiply,name='multiply'),
-   path('test/',views.test,name='test'),
-   path('send_mail/',views.send_mail,name='send_mail'),
+#    path("",views.hello_response,name='hello_response'),
+    path("",views.index,name='index'),
+     path("hello/",views.helloapp,name='helloapp'),
+#    path('greet/<str:name>',views.greetme,name='greetme'),
+#    path('square/<int:number>',views.square,name='square'),
+#    path('multiply/',views.multiply,name='multiply'),
+#    path('test/',views.test,name='test'),
+#    path('send_mail/',views.send_mail,name='send_mail'),
 ]
