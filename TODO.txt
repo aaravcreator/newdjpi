@@ -1,0 +1,7 @@
+from readline import append_history_file
+from django import views
+
+
+1. Add app to settings.py
+2. Creating urls.py for app
+3. Creating Hello response view in app
