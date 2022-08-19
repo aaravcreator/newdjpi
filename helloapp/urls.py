@@ -20,5 +20,8 @@ from helloapp import views
 app_name = "helloapp"
 
 urlpatterns = [
-   path("",views.hello_response,name='hello_response')
+   path("",views.hello_response,name='hello_response'),
+   path('greet/<str:name>',views.greetme,name='greetme'),
+   path('square/<int:number>',views.square,name='square'),
+   path('multiply/',views.multiply,name='multiply')
 ]
