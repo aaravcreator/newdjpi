@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render,HttpResponse,HttpResponseRedirect
+from helloapp.models import Post
 
-from helloapp.utils import send_mail_to_user
+from helloapp.utils import randomstring, send_mail_to_user
 
 # Create your views here.
 # def hello_response(request):
@@ -31,14 +32,26 @@ from helloapp.utils import send_mail_to_user
 
 #     return redirect('helloapp:hello_response')
 
+
+
+
 # def send_mail(request):
 #     message = request.GET.get('message')
 
 #     send_mail_to_user(['test@gmail.com'],'Mail from Django',"THis is mail from django app and message is {}".format(message))
 #     return HttpResponse("Mail sent to test@gmail.com ")
 
+
+
+
 def index(request):
     return render(request,'base.html',{})
 
 def helloapp(request):
-    return render(request,'helloapp/helloapp.html',{})
+    posts = Post.objects.all()
+
+    #filter post by published 
+    # posts = Post.objects.filter(published=True)
+    for post in posts:
+        print(post.title)
+    return render(request,'helloapp/helloapp.html',{'posts':posts})
